@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Howl } from "howler";
 import levels from "./Components1/Levels/LevelsGame";
 import CanvasGame from "./Components1/CanvasGame/CanvasGame";
+import "@fortawesome/fontawesome-free/css/all.min.css"
 function App() {
   const canvasRef = useRef(null);
   const [score, setScore] = useState(
@@ -42,14 +43,14 @@ function App() {
           </div>
           <div className="flex justify-center gap-4 mt-4  lg:hidden">
             <button
-              className=" bg-gray-700 px-4 py-2 rounded text-xl"
+              className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
               onTouchStart={() => (keys.left = true)}
               onTouchEnd={() => (keys.left = false)}
             >
-              ⬅️
+              <i className="fa-solid fa-arrow-left"></i>
             </button>
             <button
-              className=" bg-gray-700 px-4 py-2 rounded text-xl"
+              className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
               onTouchStart={() => {
                 if (keys.up === false) {
                   keys.up = true;
@@ -58,14 +59,14 @@ function App() {
               }}
               onTouchEnd={() => (keys.up = false)}
             >
-              ⬆️
+              <i className="fa-solid fa-arrow-up text-2xl text-white"></i>
             </button>
             <button
-              className=" bg-gray-700 px-4 py-2 rounded text-xl"
+              className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
               onTouchStart={() => (keys.right = true)}
               onTouchEnd={() => (keys.right = false)}
             >
-              ➡️
+              <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
           <CanvasGame
@@ -86,7 +87,9 @@ function App() {
       )}
       {gameState === "gameover" && (
         <div className="text-center w-full">
-          <h1 className="text-6xl mb-28 text-shadow-red-600 text-shadow-lg text-red-800">💀 Game Over! </h1>
+          <h1 className="text-6xl mb-28 text-shadow-red-600 text-shadow-lg text-red-800">
+            💀 Game Over!{" "}
+          </h1>
           <button
             className=" bg-cyan-600 text-xl shadow-cyan-600 shadow-2xl px-4 py-2 rounded-lg cursor-pointer"
             onClick={() => {
@@ -106,7 +109,9 @@ function App() {
       )}
       {gameState === "win" && (
         <div className="text-center">
-          <h1 className="text-6xl mb-16 text-shadow-emerald-500 text-shadow-lg text-green-500">🎉 You Win!</h1>
+          <h1 className="text-6xl mb-16 text-shadow-emerald-500 text-shadow-lg text-green-500">
+            🎉 You Win!
+          </h1>
           <p className="mb-4 text-2xl text-amber-400">Final Score: {score}</p>
           <button
             className="bg-cyan-600 text-xl shadow-cyan-600 shadow-2xl px-4 py-2 rounded-lg cursor-pointer"
