@@ -108,6 +108,14 @@ export default function CanvasGame({
         }
       });
 
+      // Handle jump for both keyboard and mobile
+      if (keys.up && player.grounded) {
+        player.velocityY = player.jumpPower; // اعطي اللاعب قوة القفز
+        player.grounded = false;
+        jumpSound.play();
+        keys.up = false; // رجعها false بعد تنفيذ القفز
+      }
+
       // Enemy movement & collision
       lvl.enemies.forEach((en) => {
         en.x += en.dir * 2;
