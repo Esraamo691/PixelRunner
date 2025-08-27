@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Howl } from "howler";
 import levels from "./Components1/Levels/LevelsGame";
 import CanvasGame from "./Components1/CanvasGame/CanvasGame";
-import "@fortawesome/fontawesome-free/css/all.min.css"
+import "@fortawesome/fontawesome-free/css/all.min.css";
 function App() {
   const canvasRef = useRef(null);
   const [score, setScore] = useState(
@@ -49,18 +49,15 @@ function App() {
             >
               <i className="fa-solid fa-arrow-left"></i>
             </button>
+
             <button
               className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
-              onTouchStart={() => {
-                if (keys.up === false) {
-                  keys.up = true;
-                  jumpSound.play();
-                }
-              }}
+              onTouchStart={() => {keys.up = true;}}
               onTouchEnd={() => (keys.up = false)}
             >
               <i className="fa-solid fa-arrow-up text-2xl text-white"></i>
             </button>
+
             <button
               className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
               onTouchStart={() => (keys.right = true)}
