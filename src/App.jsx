@@ -4,6 +4,11 @@ import levels from "./Components1/Levels/LevelsGame";
 import CanvasGame from "./Components1/CanvasGame/CanvasGame";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 function App() {
+  useEffect(() => {
+    localStorage.removeItem("score");
+    localStorage.removeItem("level");
+  }, []); // Runs only once when App mounts
+
   const canvasRef = useRef(null);
   const [score, setScore] = useState(
     () => Number(localStorage.getItem("score")) || 0
@@ -52,7 +57,9 @@ function App() {
 
             <button
               className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
-              onTouchStart={() => {keys.up = true;}}
+              onTouchStart={() => {
+                keys.up = true;
+              }}
               onTouchEnd={() => (keys.up = false)}
             >
               <i className="fa-solid fa-arrow-up text-2xl text-white"></i>
@@ -132,3 +139,4 @@ function App() {
 }
 
 export default App;
+
