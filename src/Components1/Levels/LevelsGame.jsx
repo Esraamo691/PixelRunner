@@ -102,6 +102,7 @@ const levels = [
     ],
     goal: { x: 730, y: 50, w: 100, h: 100 },
   },
+
   //level 6
 
   {
@@ -109,7 +110,7 @@ const levels = [
       { x: 0, y: 350, width: 800, height: 50 },
       { x: 300, y: 280, width: 50, height: 20 },
       { x: 500, y: 220, width: 50, height: 20 },
-      { x: 700, y: 160, width: 50, height: 20 },
+      { x: 680, y: 160, width: 50, height: 20 },
     ],
     coins: [
       { x: 310, y: 250, r: 20, collected: false },
@@ -117,12 +118,13 @@ const levels = [
       { x: 710, y: 130, r: 20, collected: false },
     ],
     enemies: [
-      { x: 320, y: 260, w: 80, h: 60, dir: 1 },
-      { x: 520, y: 200, w: 80, h: 60, dir: -1 },
-      { x: 720, y: 140, w: 80, h: 60, dir: 1 },
+      { x: 320, y: 280, w: 80, h: 60, dir: 1.3 },
+      { x: 520, y: 200, w: 80, h: 60, dir: -1.3 },
+      { x: 720, y: 100, w: 80, h: 60, dir: 1.3 },
     ],
-    goal: { x: 684, y: 72, w: 100, h: 100 },
+    goal: { x: 665, y: 72, w: 100, h: 100 },
   },
+  //level 7
   {
     platforms: [
       { x: 0, y: 350, width: 800, height: 50 },
@@ -139,10 +141,9 @@ const levels = [
       { x: 710, y: 120, r: 20, collected: false },
     ],
     enemies: [
-      { x: 280, y: 280, w: 80, h: 60, dir: 1 },
-      { x: 430, y: 230, w: 80, h: 60, dir: -1 },
-      { x: 580, y: 180, w: 80, h: 60, dir: 1 },
-      { x: 730, y: 130, w: 80, h: 60, dir: -1 },
+      { x: 280, y: 290, w: 80, h: 60, dir: 2 },
+      { x: 430, y: 180, w: 80, h: 60, dir: -2 },
+      { x: 730, y: 60, w: 80, h: 60, dir: -2 },
     ],
     goal: { x: 680, y: 70, w: 90, h: 90 },
   },
