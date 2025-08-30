@@ -93,6 +93,18 @@ export default function CanvasGame({
       player.velocityY += player.gravity;
       player.y += player.velocityY;
 
+
+if (player.x < 0) player.x = 0; 
+if (player.x + player.width > canvas.width / scaleX) {
+  player.x = canvas.width / scaleX - player.width; 
+}
+if (player.y < 0) player.y = 0; 
+if (player.y + player.height > canvas.height / scaleY) {
+  player.y = canvas.height / scaleY - player.height; 
+  player.velocityY = 0;
+  player.grounded = true;
+}
+
       // Platform collision
       player.grounded = false;
       lvl.platforms.forEach((p) => {
@@ -110,10 +122,10 @@ export default function CanvasGame({
 
       // Handle jump for both keyboard and mobile
       if (keys.up && player.grounded) {
-        player.velocityY = player.jumpPower; // اعطي اللاعب قوة القفز
+        player.velocityY = player.jumpPower; 
         player.grounded = false;
         jumpSound.play();
-        keys.up = false; // رجعها false بعد تنفيذ القفز
+        keys.up = false; 
       }
 
       // Enemy movement & collision
@@ -248,3 +260,4 @@ export default function CanvasGame({
   ]);
   return null;
 }
+
