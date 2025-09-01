@@ -34,7 +34,7 @@ function App() {
   const keys = { left: false, right: false, up: false };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[url(/images/subtle-prism.svg)] bg-cover bg-center text-white ">
+    <div className="flex flex-col px-4 items-center justify-center min-h-screen bg-[url(/images/subtle-prism.svg)] bg-cover bg-center text-white ">
       {gameState === "playing" && (
         <>
           <h1 className="sm:text-2xl font-bold text-amber-400 text-xl sm:mb-4 mb-2">
@@ -46,31 +46,33 @@ function App() {
               className=" bg-[url(/images/platform.jpg)] bg-cover bg-center rounded-lg shadow-lg w-[95%] sm:w-[800px]  h-[50vh] sm:h-[400px]"
             />
           </div>
-          <div className="flex justify-center gap-4 mt-4  lg:hidden">
-            <button
-              className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
-              onTouchStart={() => (keys.left = true)}
-              onTouchEnd={() => (keys.left = false)}
-            >
-              <i className="fa-solid fa-arrow-left"></i>
-            </button>
+          <div className="flex  gap-4 mt-7 justify-between   w-full lg:hidden">
+            <div className=" flex gap-3 self-start order-1">
+              <button
+                className=" bg-emerald-600 cursor-pointer px-4 py-2 border-2 border-b-cyan-900 rounded-full text-xl"
+                onTouchStart={() => (keys.left = true)}
+                onTouchEnd={() => (keys.left = false)}
+              >
+                <i className="fa-solid fa-arrow-left"></i>
+              </button>
+
+              <button
+                className=" bg-emerald-600 cursor-pointer px-4 py-2 border-2 border-b-cyan-900 rounded-full text-xl"
+                onTouchStart={() => (keys.right = true)}
+                onTouchEnd={() => (keys.right = false)}
+              >
+                <i className="fa-solid fa-arrow-right"></i>
+              </button>
+            </div> 
 
             <button
-              className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
+              className=" bg-emerald-600 cursor-pointer px-4 py-2 border-2 border-b-cyan-900 rounded-full text-xl"
               onTouchStart={() => {
                 keys.up = true;
               }}
               onTouchEnd={() => (keys.up = false)}
             >
               <i className="fa-solid fa-arrow-up text-2xl text-white"></i>
-            </button>
-
-            <button
-              className=" bg-emerald-600 cursor-pointer px-4 py-2 rounded text-xl"
-              onTouchStart={() => (keys.right = true)}
-              onTouchEnd={() => (keys.right = false)}
-            >
-              <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
           <CanvasGame
